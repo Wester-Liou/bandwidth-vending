@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  honeygain:
+    image: honeygain/honeygain:latest
+    container_name: honeygain
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    command: >
+      -tou-accept
+      -email "${HONEYGAIN_EMAIL}"
+      -pass "${HONEYGAIN_PASSWORD}"
+      -device "${DEVICE_NAME}"
+
+  packetstream:
+    image: packetstream/packetstream:latest
+    container_name: psclient
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    environment:
+      - CID=${PS_CLIENT_CID}
+
+  pawns:
+    image: iproyal/pawns-cli:latest
+    container_name: pawns
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    command: >
+      -accept-tos
+      -email="${PAWS_EMAIL}"
+      -password="${PAWS_PASSWORD}"
+
+  traffmonetizer:
+    image: traffmonetizer/cli_v2:latest
+    container_name: traffmonetizer
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    command: >
+      -i
+      --name tm
+      traffmonetizer/cli_v2
+      start
+      accept
+      --token "${TRAFFMONETIZER_TOKEN}"
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DOCKER_API_VERSION=1.44
+    command: >
+      --cleanup
+      --include-stopped
+      --include-restarting
+      --revive-stopped
+      --interval 3600
+      honeygain
+      packetstream
+      pawns
+      traffmonetizer
+    depends_on:
+      - honeygain
+      - packetstream
+      - pawns
+      - traffmonetizer
