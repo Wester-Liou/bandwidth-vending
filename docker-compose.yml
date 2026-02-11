@@ -39,8 +39,8 @@ services:
         max-file: "3"
     command: >
       -accept-tos
-      -email="${PAWS_EMAIL}"
-      -password="${PAWS_PASSWORD}"
+      -email="${PAWNS_EMAIL}"
+      -password="${PAWNS_PASSWORD}"
 
   traffmonetizer:
     image: traffmonetizer/cli_v2:latest
