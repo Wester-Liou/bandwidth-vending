@@ -1,4 +1,4 @@
-# Traffic Vending
+# Bandwidth Vending
 
 Turn your unused internet bandwidth into passive income. This project sets up multiple bandwidth sharing applications (Honeygain, PacketStream, Pawns.app, TraffMonetizer) using Docker.
 
@@ -31,8 +31,8 @@ Sign up using the links below to get a head start (and support this project):
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your-username/traffic-vending.git
-   cd traffic-vending
+   git clone https://github.com/Wester-Liou/bandwidth-vending.git
+   cd bandwidth-vending
    ```
 
 2. **Configure Environment Variables**:
@@ -47,7 +47,7 @@ Sign up using the links below to get a head start (and support this project):
 
    ```ini
    # Device Name (appears in dashboards)
-   DEVICE_NAME=traffic-vending
+   DEVICE_NAME=bandwidth-vending
 
    # Honeygain
    HONEYGAIN_EMAIL=your_email@example.com

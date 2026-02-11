@@ -1,4 +1,4 @@
-# Traffic Vending | 流量變現
+# Bandwidth Vending | 流量變現
 
 將您閒置的網路頻寬轉化為被動收入。本專案使用 Docker 快速部署多個流量變現應用程式 (Honeygain, PacketStream, Pawns.app, TraffMonetizer)。
 
@@ -31,8 +31,8 @@
 1. **複製專案**:
 
    ```bash
-   git clone https://github.com/your-username/traffic-vending.git
-   cd traffic-vending
+   git clone https://github.com/Wester-Liou/bandwidth-vending.git
+   cd bandwidth-vending
    ```
 
 2. **設定環境變數**:
@@ -47,7 +47,7 @@
 
    ```ini
    # 裝置名稱 (將顯示在儀表板上)
-   DEVICE_NAME=traffic-vending
+   DEVICE_NAME=bandwidth-vending
 
    # Honeygain
    HONEYGAIN_EMAIL=your_email@example.com
