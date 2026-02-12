@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   honeygain:
     image: honeygain/honeygain:latest
@@ -17,7 +15,7 @@ services:
       -device "${DEVICE_NAME}"
 
   packetstream:
-    image: packetstream/packetstream:latest
+    image: packetstream/psclient:latest
     container_name: psclient
     restart: always
     logging:
