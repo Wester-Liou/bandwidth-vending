@@ -1,4 +1,21 @@
+volumes:
+  bitpingd-volume:
+  
 services:
+  bitping:
+    image: bitping/bitpingd:latest
+    container_name: bitping
+    stdin_open: true
+    tty: true
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    volumes:
+      - bitpingd-volume:/root/.bitpingd
+
   honeygain:
     image: honeygain/honeygain:latest
     container_name: honeygain
