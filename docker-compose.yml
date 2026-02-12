@@ -39,6 +39,7 @@ services:
       -accept-tos
       -email="${PAWNS_EMAIL}"
       -password="${PAWNS_PASSWORD}"
+      -device-name="${DEVICE_NAME}"
 
   traffmonetizer:
     image: traffmonetizer/cli_v2:latest
