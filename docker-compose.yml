@@ -15,6 +15,9 @@ services:
         max-file: "3"
     volumes:
       - bitpingd-volume:/root/.bitpingd
+    environment:
+      - BITPING_EMAIL=${BITPING_EMAIL}
+      - BITPING_PASSWORD=${BITPING_PASSWORD}
 
   honeygain:
     image: honeygain/honeygain:latest
